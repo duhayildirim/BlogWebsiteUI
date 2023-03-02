@@ -8,12 +8,12 @@ class UserSignupPage extends React.Component {
     email: null,
     password: null,
     passwordCheck: null,
-    agreeClicked: false
   }
 
   onChangeValue = e => {
+    const { id, value } = e.target
     this.setState({
-      [e.target.id] : e.target.value
+      [id] : value
     })
   }
 
