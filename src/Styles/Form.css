@@ -10,7 +10,7 @@ body {
   background-color: #e40851;
   border-radius: 20px;
   box-sizing: border-box;
-  height: 750px;
+  height: 670px;
   padding: 20px;
   width: 400px;
 }
@@ -111,14 +111,20 @@ body {
   cursor: pointer;
   font-size: 18px;
   height: 50px;
-  margin-top: 30px;
+  margin-top: 50px;
   font-weight: bolder;
   text-align: center;
-  width: 100%;
+  width: 35%;
+  float: right;
 }
 
 .submit:active {
   background-color: #e40851;
+}
+
+.submit:hover {
+  background-color: #eee;
+  color: #e40851;
 }
 
 .termof {

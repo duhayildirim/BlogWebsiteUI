@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 class UserSignupPage extends React.Component {
 
@@ -13,8 +14,15 @@ class UserSignupPage extends React.Component {
   onChangeValue = e => {
     const { id, value } = e.target
     this.setState({
-      [id] : value
+      [id]: value
     })
+  }
+
+  signUp = e => {
+    e.preventDefault()
+    const { userName, displayName, email, password } = this.state
+    const body = { userName, displayName, email, password }
+    axios.post("http://localhost:8080/api/1.0/users", body)
   }
 
   render() {
@@ -48,7 +56,7 @@ class UserSignupPage extends React.Component {
             <div className="cut "></div>
             <label htmlFor="lastname" className="placeholder">Password Check</label>
           </div>
-          <button type="text" className="submit">SUBMIT</button>
+          <button type="text" onClick={this.signUp} className="submit">SUBMIT</button>
         </form>
       </div>
     )
