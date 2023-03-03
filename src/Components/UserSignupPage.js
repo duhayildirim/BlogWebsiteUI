@@ -67,6 +67,11 @@ class UserSignupPage extends React.Component {
             <span className="far fa-user"></span>
             <input id="displayName" onChange={this.onChangeValue} className="input" type="text" placeholder="Display name*" />
           </div>
+          {
+            this.state.errors.displayName && <div className="alert alert-danger" role="alert">
+              Display name field cannot be null.
+            </div>
+          }
           <div className="form-field d-flex align-items-center">
             <span className="far fa-user"></span>
             <input id="email" onChange={this.onChangeValue} className="input" type="text" placeholder="Email*" />
