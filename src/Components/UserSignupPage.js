@@ -1,5 +1,5 @@
 import React from "react";
-import axios from "axios";
+import { signUp } from '../api/loginCalls'
 
 class UserSignupPage extends React.Component {
 
@@ -19,18 +19,25 @@ class UserSignupPage extends React.Component {
     })
   }
 
-  signUp = e => {
+  submit = async e => {
     e.preventDefault()
     this.setState({ pandingApiCall: true })
 
     const { userName, displayName, email, password } = this.state
     const body = { userName, displayName, email, password }
-    axios.post("/api/1.0/users", body)
-      .then((response) => {
-        this.setState({ pandingApiCall: false })
-      }).catch((error) => {
-        this.setState({ pandingApiCall: false })
-      })
+
+    try {
+      const response = await signUp(body);
+    } catch (error) {
+
+    }
+    this.setState({ pandingApiCall: false })
+      
+      // signUp(body).then((response) => {
+      //   this.setState({ pandingApiCall: false })
+      // }).catch((error) => {
+      //   this.setState({ pandingApiCall: false })
+      // })
   }
 
   render() {
@@ -61,7 +68,7 @@ class UserSignupPage extends React.Component {
             <span className="fas fa-key"></span>
             <input id="passwordCheck" onChange={this.onChangeValue} className="input" type="password" placeholder="Password Check" />
           </div>
-          <button disabled={this.state.pandingApiCall} onClick={this.signUp} className="btn mt-3">
+          <button disabled={this.state.pandingApiCall} onClick={this.submit} className="btn mt-3">
             {
               !this.state.pandingApiCall ? "Submit" :
                 <div class="spinner-border text-secondary" role="status">
