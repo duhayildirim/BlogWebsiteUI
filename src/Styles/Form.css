@@ -1,132 +1,105 @@
+/* Importing fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Reseting */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
-  align-items: center;
-  background-color: #dfe207;
-  display: flex;
-  justify-content: center;
-  height: 100vh;
+    background: #0f1b24 !important;
 }
 
-.form {
-  background-color: #e40851;
-  border-radius: 20px;
-  box-sizing: border-box;
-  height: 670px;
-  padding: 20px;
-  width: 400px;
+.wrapper {
+    max-width: 400px;
+    min-height: 500px;
+    margin: 80px auto;
+    padding: 40px 30px 30px 30px;
+    background-color: #ecf0f3;
+    border-radius: 15px;
+    box-shadow: 13px 13px 20px #818f99, -13px -13px 20px #626a70;
 }
 
-.title {
-  color: #eee;
-  font-family: sans-serif;
-  font-size: 36px;
-  font-weight: 600;
-  margin-top: 30px;
+.logo {
+    width: 80px;
+    margin: auto;
 }
 
-.subtitle {
-  color: #eee;
-  font-family: sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  margin-top: 10px;
+.logo img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0px 0px 3px #5f5f5f,
+        0px 0px 0px 5px #ecf0f3,
+        8px 8px 15px #a7aaa7,
+        -8px -8px 15px #fff;
 }
 
-.input-container {
-  height: 50px;
-  position: relative;
-  width: 100%;
+.wrapper .name {
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 1.3px;
+    padding-left: 10px;
+    color: #0f1b24;
 }
 
-.ic1 {
-  margin-top: 40px;
+.wrapper .form-field input {
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1.2rem;
+    color: #0f1b24;
+    padding: 10px 15px 10px 10px;
+    /* border: 1px solid red; */
 }
 
-.ic2 {
-  margin-top: 30px;
+.wrapper .form-field {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    box-shadow: inset 8px 8px 8px #ffffff, inset -8px -8px 8px #8e9091;
 }
 
-.input {
-  background-color: #dfe207;
-  border-radius: 12px;
-  border: 0;
-  box-sizing: border-box;
-  color: #e40851;
-  font-size: 18px;
-  height: 100%;
-  outline: 0;
-  padding: 4px 20px 0;
-  width: 100%;
+.wrapper .form-field .fas {
+    color: #0f1b24;
 }
 
-.cut {
-  background-color: #e40851;
-  border-radius: 10px;
-  height: 20px;
-  left: 20px;
-  position: absolute;
-  top: -20px;
-  transform: translateY(0);
-  transition: transform 200ms;
-  width: 120px;
+.wrapper .btn {
+    box-shadow: none;
+    width: 100%;
+    height: 40px;
+    background-color: #0f1b24;
+    color: #fff;
+    border-radius: 25px;
+    box-shadow: 3px 3px 3px #b1b1b1,
+        -3px -3px 3px #fff;
+    letter-spacing: 1.3px;
 }
 
-.input:focus ~ .cut,
-.input:not(:placeholder-shown) ~ .cut {
-  transform: translateY(8px);
-  text-align: center;
+.wrapper .btn:hover {
+    background-color: #fff;
+    color: #0f1b24;
 }
 
-.placeholder {
-  color: #e40851;
-  font-family: sans-serif;
-  left: 20px;
-  line-height: 14px;
-  pointer-events: none;
-  position: absolute;
-  transform-origin: 0 50%;
-  transition: transform 200ms, color 200ms;
-  top: 20px;
+.wrapper a {
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #0f1b24;
 }
 
-.input:focus ~ .placeholder,
-.input:not(:placeholder-shown) ~ .placeholder {
-  transform: translateY(-30px) translateX(10px) scale(0.75);
-  color: #e40851;
+.wrapper a:hover {
+    color: #0f1b24;
 }
 
-.input:not(:placeholder-shown) ~ .placeholder {
-  color: #e40851;
-}
-
-.input:focus ~ .placeholder {
-  color: #dfe207;
-}
-
-.submit {
-  background-color: #dfe207;
-  border-radius: 12px;
-  border: 0;
-  box-sizing: border-box;
-  color: #e40851;
-  cursor: pointer;
-  font-size: 18px;
-  height: 50px;
-  margin-top: 50px;
-  font-weight: bolder;
-  text-align: center;
-  width: 35%;
-  float: right;
-}
-
-.submit:active {
-  background-color: #e40851;
-}
-
-.submit:hover {
-  background-color: #eee;
-  color: #e40851;
-}
-
-.termof {
-  color: #eee;
+@media(max-width: 380px) {
+    .wrapper {
+        margin: 30px 20px;
+        padding: 40px 15px 15px 15px;
+    }
 }

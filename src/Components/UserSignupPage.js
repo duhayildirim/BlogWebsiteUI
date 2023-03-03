@@ -27,38 +27,38 @@ class UserSignupPage extends React.Component {
 
   render() {
     return (
-      <div className="form">
-        <div className="title">Welcome</div>
-        <div className="subtitle">Let's create your account!</div>
-        <form>
-          <div className="input-container ic1">
-            <input id="userName" onChange={this.onChangeValue} className="input" type="text" placeholder=" " />
-            <div className="cut"></div>
-            <label htmlFor="username" className="placeholder">User name</label>
-          </div>
-          <div className="input-container ic2">
-            <input id="displayName" onChange={this.onChangeValue} className="input" type="text" placeholder=" " />
-            <div className="cut"></div>
-            <label htmlFor="displayName" className="placeholder">Display name</label>
-          </div>
-          <div className="input-container ic2">
-            <input id="email" onChange={this.onChangeValue} className="input" type="text" placeholder=" " />
-            <div className="cut"></div>
-            <label htmlFor="email" className="placeholder">Email</label>
-          </div>
-          <div className="input-container ic2">
-            <input id="password" onChange={this.onChangeValue} className="input" type="password" placeholder=" " />
-            <div className="cut"></div>
-            <label htmlFor="lastname" className="placeholder">Password</label>
-          </div>
-          <div className="input-container ic2">
-            <input id="passwordCheck" onChange={this.onChangeValue} className="input" type="password" placeholder=" " />
-            <div className="cut "></div>
-            <label htmlFor="lastname" className="placeholder">Password Check</label>
-          </div>
-          <button type="text" onClick={this.signUp} className="submit">SUBMIT</button>
+      <div class="wrapper">
+        <div class="text-center mt-4 name">
+          <h1>Welcome</h1>
+          <div className="subtitle">Let's create your account!</div>
+        </div>
+        <form class="p-3 mt-3">
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input id="userName" onChange={this.onChangeValue} className="input" type="text" placeholder="Name" />
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input id="displayName" onChange={this.onChangeValue} className="input" type="text" placeholder="Display name" />
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input id="email" onChange={this.onChangeValue} className="input" type="text" placeholder="Email" />
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input id="password" onChange={this.onChangeValue} className="input" type="password" placeholder="Password" />
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input id="passwordCheck" onChange={this.onChangeValue} className="input" type="password" placeholder="Password Check" />
+            </div>
+            <button onClick={this.signUp} class="btn mt-3">Submit</button>
         </form>
-      </div>
+        <div class="text-center fs-6">
+            <a href="#">Sign up</a>
+        </div>
+    </div>
     )
   }
 }
