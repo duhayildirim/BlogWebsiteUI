@@ -47,6 +47,11 @@ body {
     color: #0f1b24;
 }
 
+.subtitle {
+  font-style: italic;
+  font-size: small;
+}
+
 .wrapper .form-field input {
     width: 100%;
     display: block;

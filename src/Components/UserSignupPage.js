@@ -9,6 +9,7 @@ class UserSignupPage extends React.Component {
     email: null,
     password: null,
     passwordCheck: null,
+    pandingApiCall: false
   }
 
   onChangeValue = e => {
@@ -20,45 +21,60 @@ class UserSignupPage extends React.Component {
 
   signUp = e => {
     e.preventDefault()
+    this.setState({ pandingApiCall: true })
+
     const { userName, displayName, email, password } = this.state
     const body = { userName, displayName, email, password }
     axios.post("/api/1.0/users", body)
+      .then((response) => {
+        this.setState({ pandingApiCall: false })
+      }).catch((error) => {
+        this.setState({ pandingApiCall: false })
+      })
   }
 
   render() {
     return (
-      <div class="wrapper">
-        <div class="text-center mt-4 name">
+      <div className="wrapper">
+        <div className="text-center mt-4 name">
           <h1>Welcome</h1>
           <div className="subtitle">Let's create your account!</div>
         </div>
-        <form class="p-3 mt-3">
-            <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
-                <input id="userName" onChange={this.onChangeValue} className="input" type="text" placeholder="Name" />
-            </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
-                <input id="displayName" onChange={this.onChangeValue} className="input" type="text" placeholder="Display name" />
-            </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="far fa-user"></span>
-                <input id="email" onChange={this.onChangeValue} className="input" type="text" placeholder="Email" />
-            </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input id="password" onChange={this.onChangeValue} className="input" type="password" placeholder="Password" />
-            </div>
-            <div class="form-field d-flex align-items-center">
-                <span class="fas fa-key"></span>
-                <input id="passwordCheck" onChange={this.onChangeValue} className="input" type="password" placeholder="Password Check" />
-            </div>
-            <button onClick={this.signUp} class="btn mt-3">Submit</button>
+        <form className="p-3 mt-3">
+          <div className="form-field d-flex align-items-center">
+            <span className="far fa-user"></span>
+            <input id="userName" onChange={this.onChangeValue} className="input" type="text" placeholder="Name" />
+          </div>
+          <div className="form-field d-flex align-items-center">
+            <span className="far fa-user"></span>
+            <input id="displayName" onChange={this.onChangeValue} className="input" type="text" placeholder="Display name" />
+          </div>
+          <div className="form-field d-flex align-items-center">
+            <span className="far fa-user"></span>
+            <input id="email" onChange={this.onChangeValue} className="input" type="text" placeholder="Email" />
+          </div>
+          <div className="form-field d-flex align-items-center">
+            <span className="fas fa-key"></span>
+            <input id="password" onChange={this.onChangeValue} className="input" type="password" placeholder="Password" />
+          </div>
+          <div className="form-field d-flex align-items-center">
+            <span className="fas fa-key"></span>
+            <input id="passwordCheck" onChange={this.onChangeValue} className="input" type="password" placeholder="Password Check" />
+          </div>
+          <button disabled={this.state.pandingApiCall} onClick={this.signUp} className="btn mt-3">
+            {
+              !this.state.pandingApiCall ? "Submit" :
+                <div class="spinner-border text-secondary" role="status">
+                  <span class="sr-only"></span>
+                </div>
+            }
+
+          </button>
         </form>
-        <div class="text-center fs-6">
-            <a href="#">Sign up</a>
+        <div className="text-center fs-6">
+          <a href="#">Sign up</a>
         </div>
-    </div>
+      </div >
     )
   }
 }
