@@ -1,5 +1,6 @@
 import React from "react";
 import { signUp } from '../api/loginCalls'
+import Input from "../Components/Input";
 
 class UserSignupPage extends React.Component {
 
@@ -54,24 +55,8 @@ class UserSignupPage extends React.Component {
           <div className="subtitle">Let's create your account!</div>
         </div>
         <form className="p-3 mt-3">
-          <div className="form-field d-flex align-items-center">
-            <span className="far fa-user"></span>
-            <input id="userName" onChange={this.onChangeValue} className="input" type="text" placeholder="Name*" />
-          </div>
-          {
-            this.state.errors.userName && <div className="alert alert-danger" role="alert">
-              Name field cannot be null.
-            </div>
-          }
-          <div className="form-field d-flex align-items-center">
-            <span className="far fa-user"></span>
-            <input id="displayName" onChange={this.onChangeValue} className="input" type="text" placeholder="Display name*" />
-          </div>
-          {
-            this.state.errors.displayName && <div className="alert alert-danger" role="alert">
-              Display name field cannot be null.
-            </div>
-          }
+          <Input onChangeValue={this.onChangeValue} type={"text"} error={"userName"} title={"User name"} name={this.state.errors.userName ? "User name" : undefined} />
+          <Input onChangeValue={this.onChangeValue} type={"text"} error={"displayName"} title={"Display name"} name={this.state.errors.displayName ? "Display name" : undefined} />
           <div className="form-field d-flex align-items-center">
             <span className="far fa-user"></span>
             <input id="email" onChange={this.onChangeValue} className="input" type="text" placeholder="Email*" />
