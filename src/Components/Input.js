@@ -9,7 +9,7 @@ const Input = (props) => {
       </div>
       {
         props.name && <div className="alert alert-danger" role="alert">
-          {props.title} field cannot be null.
+          {props.title} {props.message}
         </div>
       }
     </>
